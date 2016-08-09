@@ -1,4 +1,5 @@
 var Url = require('../../models/url');
+var urlService = require('../../services/createUrl');
 
 exports.all = function(req, res) {
 	Url.find(function(err, urls) {
@@ -11,8 +12,11 @@ exports.all = function(req, res) {
 
 exports.create = function(req, res) {
 	var url = new Url();
+
     url.url = req.body.url;
-    url.shortUrl = req.body.shortUrl;
+    url.shortUrl = urlService.generateUrl(req.body.url);
+
+    console.log(url.shortUrl);
 
     url.save(function(err) {
         if (err) {
@@ -20,5 +24,13 @@ exports.create = function(req, res) {
         }
         res.json({ message: 'Url created' });
     });
+}
 
+exports.show = function(req, res) {
+    Url.findById(req.params.url_id, function(err, url) {
+        if (err) {
+            res.send(err);
+        }
+        res.json(url);
+    });
 }
