@@ -1,0 +1,50 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th class="text-center">#</th>
+                        <th>Url</th>
+                        <th>Short url</th>
+                        <th>Created at</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="url in urls">
+                        <td>#1</td>
+                        <td>{{ url.url }}</td>
+                        <td>{{ url.shortUrl }}</td>
+                        <td>{{ url.createAt }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Core -->
+<div class="modal fade" id="urlForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Create short url</h4>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <label for="">Url</label>
+                    <input id="" type="text" value="" placeholder="http://" class="form-control" />
+                </div>
+            </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default btn-simple" data-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-info btn-simple">Create url</button>
+      </div>
+    </div>
+  </div>
+</div>
