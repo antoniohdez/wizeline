@@ -15,7 +15,7 @@
                         <td>#1</td>
                         <td>{{ url.url }}</td>
                         <td>{{ url.shortUrl }}</td>
-                        <td>{{ url.createAt }}</td>
+                        <td>{{ url.createdAt | date:'dd/MM/yyyy - h:mma' }}</td>
                     </tr>
                 </tbody>
             </table>
@@ -33,17 +33,17 @@
       </div>
       <div class="modal-body">
         <div class="row">
-            <div class="col-sm-4">
+            <div class="col-sm-12">
                 <div class="form-group">
-                    <label for="">Url</label>
-                    <input id="" type="text" value="" placeholder="http://" class="form-control" />
+                    <label for="input-url">Url</label>
+                    <input id="input-url" type="text" value="" placeholder="http://" class="form-control" ng-model="url.url" />
                 </div>
             </div>
         </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default btn-simple" data-dismiss="modal">Cancel</button>
-        <button type="button" class="btn btn-info btn-simple">Create url</button>
+        <button type="button" class="btn btn-info btn-simple" data-dismiss="modal" ng-click="createUrl()">Create url</button>
       </div>
     </div>
   </div>

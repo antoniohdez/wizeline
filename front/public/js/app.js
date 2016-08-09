@@ -24,5 +24,5 @@ app.config(['$httpProvider', function($httpProvider) {
 
 /* API's base url */
 app.run(['$window', function($window) {
-	$window.baseUrl = 'http://localhost:8000/api';
+	$window.baseUrl = 'http://localhost:8000';
 }]);

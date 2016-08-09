@@ -1,21 +1,24 @@
-app.controller("mainController", ["$scope", "","$location", "$window", "urlsFactory",
-    function ($scope, $location, $window, authService, urlsFactory) {
+app.controller("mainController", ["$scope","$location", "$window", "urlsFactory",
+    function ($scope, $location, $window, urlsFactory) {
         $scope.url = {};
         $scope.urls = [];
 
-        $scope.getUrls = function () {
-             
-        };
-
         $scope.createUrl = function() {
-            urlsFactory.create($scope.url).$promise.then(function() {
-                $scope.urls = urlsFactory.query();
-                $scope.clearForm();
-            }); 
+            
+            if ($scope.isValidUrl()) {
+                urlsFactory.create($scope.url).$promise.then(function() {
+                    $scope.urls = urlsFactory.query();
+                    $scope.clearForm();
+                }); 
+            }
+        }
+
+        $scope.isValidUrl = function() {
+            return true;
         }
 
         $scope.clearForm = function() {
-            $scope.user = {};
+            $scope.url = {};
         }
 
         $scope.urls = urlsFactory.query();
